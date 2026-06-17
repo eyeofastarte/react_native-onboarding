@@ -14,4 +14,4 @@ My main goals here are to sharpen my skills as a developer, get comfortable enou
 
 ---
 
-This repo is my working copy of the [Focus Bear onboarding program](https://github.com/Focus-Bear/onboarding-generic). It tracks my progress through the issues and milestones as I work through them. I'll be committing my solutions here and leaving notes on anything I found tricky or interesting along the way.
+This repo is my working copy of the [Focus Bear onboarding program](https://github.com/Focus-Bear/onboarding-generic). It tracks my progress through the issues and milestones as I work through them. I'll be committing my solutions here and leaving notes on anything I found tricky or interesting along the way. New details on branch conflict-test
