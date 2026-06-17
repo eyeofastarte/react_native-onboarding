@@ -67,3 +67,19 @@ git checkout -b <branch>        # create and switch to new branch
 git rebase <branch>    # replay current branch commits on top of <branch>
 git rebase --abort     # cancel an in-progress rebase
 ```
+
+### Commit Types
+
+| Type | Use |
+|------|-----|
+| `feat` | New feature for the user |
+| `fix` | Bug fix for the user |
+| `docs` | Documentation changes only |
+| `style` | Formatting, missing semicolons |
+| `refactor` | Code restructure |
+| `perf` | Performance improvements |
+| `test` | Adding or refactoring tests |
+| `chore` | Dependency updates, build tools |
+| `build` | Changes to build system or external dependencies |
+| `ci` | Configuration or scripts |
+| `revert` | Reverting a previous commit |
