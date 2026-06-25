@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import HelloWorld from './HelloWorld.js'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,7 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <HelloWorld name={'Focus Bear!'}></HelloWorld>
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
