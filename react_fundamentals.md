@@ -1,12 +1,16 @@
 # Challenges
 
-I didn't run into any challenges with this topic.
+I didn't run into any challenges with issue #33
 
 # React Fundamentals
 
 ## What is React?
 
 React is a JavaScript library for building user interfaces. Instead of writing separate HTML files, you build segmented UI fragments called components.
+
+### Components
+
+Components are important in React because they let you split the UI into small reusable pieces. Instead of building one big page you can build smaller blocks that are easier to manage, test, and reuse across the app.
 
 ### JSX
 
