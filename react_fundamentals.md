@@ -23,3 +23,7 @@ Props are how data gets passed from one component to another. They let you make 
 ### State
 
 State holds information that can change over time. When state changes, React updates the part of the screen that depends on it.
+
+### What happens if we modify state directly?
+
+If we change state directly, React won't know the state changed. The setter function is what tells React to check for changes and update the UI.
