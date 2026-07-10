@@ -10,7 +10,9 @@ import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { ApiTestButton } from '@/components/api-test-button';
 import ToDoList from '@/components/to-do-list';
-import { ScrollView } from 'react-native';
+import { ScrollView, Button } from 'react-native';
+import { useState } from 'react';
+import UseMemoList from '@/components/UseMemoList';
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -32,10 +34,13 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+  const [count, setCount] = useState(0);
+
   return (
     <ThemedView style={ styles.container}>
       <SafeAreaView style={{ ...styles.safeArea, marginTop: 50 }}>
-        <ScrollView showsVerticalScrollIndicator={false} id="check" contentContainerStyle={styles.scrollContent}>
+        {/* Temp fix nestedScrollEnabled :( */}
+        <ScrollView nestedScrollEnabled={true} showsVerticalScrollIndicator={false} id="check" contentContainerStyle={styles.scrollContent}>
           <ThemedView style={styles.heroSection}>
             <AnimatedIcon />
             <ThemedText type="title" style={styles.title}>
@@ -50,6 +55,9 @@ export default function HomeScreen() {
           <ApiTestButton />
 
           <ToDoList></ToDoList>
+
+          <Button title={`Increment count (${count})`} onPress={() => setCount((c) => c + 1)} />
+          <UseMemoList count={count} />
 
           <ThemedView type="backgroundElement" style={styles.stepContainer}>
             <HintRow

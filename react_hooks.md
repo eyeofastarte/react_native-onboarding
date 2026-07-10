@@ -33,3 +33,14 @@ Both of these hooks are utilized to memoize values in React and increase perform
 ### Under which conditions would useCallback not be useful?
 
 `useCallback` is not required if you do not pass this function into an optimized child component (React.memo) or use the function as a dependency array to another hook. In a situation where you just need to provide a function as an event handler for a simple element inside the component, creating a new function on each render is a fairly costless task and won't hurt performance in any way. However, using `useCallback` unnecessarily may reduce performance since the hook adds overhead. Specifically, React has to keep track of the array of dependencies given and check their values for equality on each render. Because `useCallback` comes with additional complexity, it should be used only in the specific case that you identify as re-creating functions with new references on every render.
+
+## Hook - useMemo
+
+### How does useMemo improve performance?
+`useMemo` speeds things up by storing the outcome of a cost-intensive computation across renders. Instead of recalculating the result with every render, React only recalculates the result if something in the dependency list that was passed into `useMemo` changed. This means if the component is rendered for some other reason, the heavy calculation on a large list of numbers can be skipped.
+
+### When should you avoid using useMemo?
+You should not use it with simple calculations when the values passed are primitives or anything that doesn't require an immense computational load. `useMemo` has a little bit of performance overhead because React needs to save it somewhere in memory and then on each render needs to calculate if anything in the dependency list has changed to calculate again. You really want to use `useMemo` when the calculation is very expensive.
+
+### What happens if you remove useMemo from your implementation?
+Without `useMemo` the large list of numbers calculation will happen each time the component is rendered. Since this is a very slow calculation, each render will slow down your application as it has to recalculate that slow function before being able to continue.
