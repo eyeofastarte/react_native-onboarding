@@ -6,8 +6,9 @@ import './App.css'
 import HelloWorld from './HelloWorld.js'
 import Counter from './Count.js'
 import TestHooks from './components/TestHooks.tsx'
+import { Link } from 'react-router'
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0)
   const [isNumVisible, setIsNumVisible] = useState(false);
 
@@ -28,6 +29,9 @@ function App() {
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
+          <Link to={{pathname: '/profile'}} className="mt-5 inline-block cursor-pointer py-1.25 px-2.5 rounded-[5px] text-(--accent) bg-(--accent-bg) border-2 border-transparent transition-[colors,scale] duration-300 mb-6 hover:border-(--accent-border) focus-visible:outline-2 focus-visible:outline-(--accent) focus-visible:outline-offset-2 tracking-wider active:scale-95">
+            Go to Profile
+          </Link>
         </div>
         {/* Remove counter className */}
         <Counter number={count} btnClick={() => setCount(count+1)}></Counter>
@@ -127,4 +131,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
