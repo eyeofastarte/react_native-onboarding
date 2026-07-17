@@ -1,8 +1,13 @@
 import { Link } from "react-router"
-import CounterDisplay from "./components/counter/AppleDisplay";
-import CounterControls from "./components/counter/AppleControls";
+import CounterDisplay from "./components/pfApples/AppleDisplay";
+import CounterControls from "./components/pfApples/AppleControls";
+import Counter from "./components/counter/Counter";
+import { useSelector } from "react-redux";
+import type { RootState } from "./store";
 
 function Profile() {
+  const getCount = () => useSelector((s: RootState) => s.counter.count);
+
   return (
     <>
       <h1 className="mt-3">Profile Page</h1>
@@ -16,6 +21,10 @@ function Profile() {
       <h2 className="mb-2">Redux Counter</h2>
       <CounterDisplay></CounterDisplay>
       <CounterControls></CounterControls>
+      <div className="mt-2" />
+      <h2 className="mb-2">Counter Simple</h2>
+      <p>Number: {getCount()}</p>
+      <Counter></Counter>
     </>
   )
 }
