@@ -1,0 +1,18 @@
+{
+  "to-do-list": "करने के लिए सूची",
+  "add-a-task": "कार्य जोड़ें",
+  "deep-focus-app": "डीप फोकस ऐप",
+  "posted-successfully": "सफलतापूर्वक पोस्ट किया गया",
+  "error": "गलती",
+  "token-removed": "टोकन हटा दिया गया",
+  "token-created": "टोकन बनाया गया",
+  "test-axios-post": "एक्सियोस पोस्ट का परीक्षण करें",
+  "remove-auth-token": "प्रामाणिक टोकन हटाएँ",
+  "create-auth-token": "प्रामाणिक टोकन बनाएं",
+  "home": "घर",
+  "explore": "अन्वेषण करना",
+  "docs": "डॉक्स",
+  "no-items-yet": "अभी तक कोई आइटम नहीं",
+  "add-btn": "जोड़ना",
+  "increment-count": "वृद्धि गणना"
+}

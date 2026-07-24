@@ -1,0 +1,18 @@
+{
+  "add-a-task": "Añadir una tarea",
+  "to-do-list": "lista de tareas pendientes",
+  "deep-focus-app": "Aplicación de enfoque profundo",
+  "posted-successfully": "Publicado exitosamente",
+  "error": "Error",
+  "token-removed": "Ficha eliminada",
+  "token-created": "Token creado",
+  "test-axios-post": "Prueba Axios POST",
+  "remove-auth-token": "Eliminar token de autenticación",
+  "create-auth-token": "Crear token de autenticación",
+  "home": "Hogar",
+  "explore": "Explorar",
+  "docs": "Documentos",
+  "no-items-yet": "Aún no hay artículos",
+  "add-btn": "Agregar",
+  "increment-count": "Conteo de incrementos"
+}

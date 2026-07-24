@@ -1,0 +1,18 @@
+{
+  "add-a-task": "أضف مهمة",
+  "to-do-list": "قائمة المهام",
+  "deep-focus-app": "تطبيق التركيز العميق",
+  "posted-successfully": "تم النشر بنجاح",
+  "error": "خطأ",
+  "token-removed": "تمت إزالة الرمز المميز",
+  "token-created": "تم إنشاء الرمز المميز",
+  "test-axios-post": "اختبار أكسيوس بوست",
+  "remove-auth-token": "إزالة رمز المصادقة",
+  "create-auth-token": "إنشاء رمز المصادقة",
+  "home": "بيت",
+  "explore": "يستكشف",
+  "docs": "المستندات",
+  "no-items-yet": "لا توجد عناصر حتى الآن",
+  "add-btn": "يضيف",
+  "increment-count": "عدد الزيادة"
+}

@@ -1,0 +1,18 @@
+{
+  "add-a-task": "Adicionar uma tarefa",
+  "to-do-list": "Lista de tarefas",
+  "deep-focus-app": "Aplicativo de foco profundo",
+  "posted-successfully": "Postado com sucesso",
+  "error": "Erro",
+  "token-removed": "Símbolo removido",
+  "token-created": "Token criado",
+  "test-axios-post": "Teste Axios POST",
+  "remove-auth-token": "Remover token de autenticação",
+  "create-auth-token": "Criar token de autenticação",
+  "home": "Lar",
+  "explore": "Explorar",
+  "docs": "Documentos",
+  "no-items-yet": "Nenhum item ainda",
+  "add-btn": "Adicionar",
+  "increment-count": "Contagem de incrementos"
+}

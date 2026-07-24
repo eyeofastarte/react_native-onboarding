@@ -1,0 +1,18 @@
+{
+  "add-a-task": "Aufgabe hinzufügen",
+  "to-do-list": "Aufgabenliste",
+  "deep-focus-app": "Deep Focus App",
+  "posted-successfully": "Erfolgreich gepostet",
+  "error": "Fehler",
+  "token-removed": "Token entfernt",
+  "token-created": "Token erstellt",
+  "test-axios-post": "Testen Sie Axios POST",
+  "remove-auth-token": "Auth-Token entfernen",
+  "create-auth-token": "Authentifizierungstoken erstellen",
+  "home": "Heim",
+  "explore": "Erkunden",
+  "docs": "Dokumente",
+  "no-items-yet": "Noch keine Artikel",
+  "add-btn": "Hinzufügen",
+  "increment-count": "Anzahl erhöhen"
+}

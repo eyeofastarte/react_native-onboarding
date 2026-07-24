@@ -3,16 +3,30 @@ import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
+import { ApiTestButton } from '@/components/api-test-button';
 import { HintRow } from '@/components/hint-row';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import ToDoList from '@/components/to-do-list';
+import UseMemoList from '@/components/UseMemoList';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { ApiTestButton } from '@/components/api-test-button';
-import ToDoList from '@/components/to-do-list';
-import { ScrollView, Button } from 'react-native';
 import { useState } from 'react';
-import UseMemoList from '@/components/UseMemoList';
+import { useTranslation } from 'react-i18next';
+import { Button, ScrollView, TouchableOpacity } from 'react-native';
+
+const LANGUAGES: { code: string; name: string }[] = [
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'ja', name: '日本語' },
+  { code: 'es', name: 'Español' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'fr', name: 'Français' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'pt', name: 'Português' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'hi', name: 'हिन्दी' },
+];
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -35,7 +49,10 @@ function getDevMenuHint() {
 
 export default function HomeScreen() {
   const [count, setCount] = useState(0);
+  const { i18n } = useTranslation();
+  const activeLanguageCode = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase().split(/[-_]/)[0];
 
+  const { t } = useTranslation()
   return (
     <ThemedView style={ styles.container}>
       <SafeAreaView style={{ ...styles.safeArea, marginTop: 50 }}>
@@ -44,19 +61,33 @@ export default function HomeScreen() {
           <ThemedView style={styles.heroSection}>
             <AnimatedIcon />
             <ThemedText type="title" style={styles.title}>
-              Welcome to&nbsp;Expo
+              {t('deep-focus-app')}
             </ThemedText>
           </ThemedView>
 
-          <ThemedText type="code" style={styles.code}>
-            get started
-          </ThemedText>
+          <ThemedView style={styles.languageRow}>
+            {LANGUAGES.map((lng) => {
+              const active = activeLanguageCode === lng.code;
+              return (
+                <TouchableOpacity
+                  key={lng.code}
+                  activeOpacity={0.7}
+                  onPress={() => i18n.changeLanguage(lng.code)}
+                  style={[styles.languageChip, active && styles.languageChipActive]}
+                >
+                  <ThemedText style={[styles.languageText, active && styles.languageTextActive]}>
+                    {lng.name}
+                  </ThemedText>
+                </TouchableOpacity>
+              );
+            })}
+          </ThemedView>
 
           <ApiTestButton />
 
           <ToDoList></ToDoList>
 
-          <Button title={`Increment count (${count})`} onPress={() => setCount((c) => c + 1)} />
+          <Button title={t('increment-count')+' '+`(${count})`} onPress={() => setCount((c) => c + 1)} />
           <UseMemoList count={count} />
 
           <ThemedView type="backgroundElement" style={styles.stepContainer}>
@@ -114,5 +145,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
+  },
+  languageRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: Spacing.two,
+    paddingHorizontal: Spacing.three,
+  },
+  languageChip: {
+    paddingHorizontal: Spacing.three,
+    paddingVertical: Spacing.two,
+    borderRadius: Spacing.three,
+    borderWidth: 1,
+    borderColor: 'rgba(128, 128, 128, 0.35)',
+    backgroundColor: 'transparent',
+  },
+  languageChipActive: {
+    backgroundColor: 'rgba(128, 128, 128, 0.2)',
+  },
+  languageText: {
+    fontSize: 14,
+  },
+  languageTextActive: {
+    fontWeight: '600',
   },
 });

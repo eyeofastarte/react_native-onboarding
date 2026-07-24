@@ -6,10 +6,13 @@ import { getAuthToken, removeAuthToken, setAuthToken } from "@/api/client";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { Spacing } from "@/constants/theme";
+import { useTranslation } from 'react-i18next';
 
 export function ApiTestButton() {
   const [status, setStatus] = useState("");
   const [hasToken, setHasToken] = useState(false);
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     getAuthToken().then((token) => setHasToken(!!token));
@@ -18,18 +21,18 @@ export function ApiTestButton() {
   async function handleTestPost() {
     setStatus("Sending...");
     const result = await loginUser("test@example.com", "password123");
-    setStatus(result.ok ? "Posted successfully" : `Error: ${result.error}`);
+    setStatus(result.ok ? t('posted-successfully') : t('error') + ': ' + `${result.error}`);
   }
 
   async function handleTokenToggle() {
     if (hasToken) {
       await removeAuthToken();
       setHasToken(false);
-      setStatus("Token removed");
+      setStatus(t('token-removed'));
     } else {
       await setAuthToken("demo-token-123");
       setHasToken(true);
-      setStatus("Token created");
+      setStatus(t('token-created'));
     }
   }
 
@@ -37,12 +40,12 @@ export function ApiTestButton() {
     <ThemedView type="backgroundElement" style={styles.container}>
       <ThemedView style={styles.row}>
         <Pressable onPress={handleTestPost} style={styles.button}>
-          <ThemedText type="smallBold">Test Axios POST</ThemedText>
+          <ThemedText type="smallBold">{t('test-axios-post')}</ThemedText>
         </Pressable>
 
         <Pressable onPress={handleTokenToggle} style={styles.button}>
           <ThemedText type="smallBold">
-            {hasToken ? "Remove auth token" : "Create auth token"}
+            {hasToken ? t('remove-auth-token') : t('create-auth-token')}
           </ThemedText>
         </Pressable>
       </ThemedView>

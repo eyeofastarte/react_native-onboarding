@@ -1,0 +1,18 @@
+{
+  "add-a-task": "Добавить задачу",
+  "to-do-list": "Список дел",
+  "deep-focus-app": "Приложение «Глубокий фокус»",
+  "posted-successfully": "Опубликовано успешно",
+  "error": "Ошибка",
+  "token-removed": "Токен удален",
+  "token-created": "Токен создан",
+  "test-axios-post": "Тестирование Axios POST",
+  "remove-auth-token": "Удалить токен аутентификации",
+  "create-auth-token": "Создать токен аутентификации",
+  "home": "Дом",
+  "explore": "Исследовать",
+  "docs": "Документы",
+  "no-items-yet": "Товаров пока нет",
+  "add-btn": "Добавлять",
+  "increment-count": "Количество приращений"
+}

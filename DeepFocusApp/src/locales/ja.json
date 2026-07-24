@@ -1,0 +1,18 @@
+{
+  "add-a-task": "タスクを追加",
+  "to-do-list": "やることリスト",
+  "deep-focus-app": "ディープフォーカスアプリ",
+  "posted-successfully": "正常に投稿されました",
+  "error": "エラー",
+  "token-removed": "トークンが削除されました",
+  "token-created": "トークンが作成されました",
+  "test-axios-post": "Axios POST をテストする",
+  "remove-auth-token": "認証トークンの削除",
+  "create-auth-token": "認証トークンの作成",
+  "home": "家",
+  "explore": "探検する",
+  "docs": "ドキュメント",
+  "no-items-yet": "まだアイテムがありません",
+  "add-btn": "追加",
+  "increment-count": "カウントを増やす"
+}

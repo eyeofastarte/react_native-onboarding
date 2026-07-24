@@ -15,9 +15,9 @@ export function ThemedInput({ style, type = 'default', ...rest }: ThemedInputPro
     <TextInput
       style={[
         {
-          backgroundColor: theme['backgroundElement'],
+          backgroundColor: theme['background'],
           color: theme['text'],
-          borderRadius: 5
+          borderRadius: 25
         },
         type === 'default' && styles.default,
         type === 'title' && styles.title,

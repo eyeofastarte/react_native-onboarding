@@ -5,17 +5,18 @@ import { ThemedView } from './themed-view';
 
 type ToDoListItemsProps = {
   id: string;
+  style?: any;
   text: string;
   onDelete: (id: string) => void;
 };
 
-export const ToDoListItems = memo(function ToDoListItems({ id, text, onDelete }: ToDoListItemsProps) {
+export const ToDoListItems = memo(function ToDoListItems({ id, style, text, onDelete }: ToDoListItemsProps) {
   const handleDelete = useCallback(() => {
     onDelete(id);
   }, [id, onDelete]);
 
   return (
-    <ThemedView style={styles.item}>
+    <ThemedView style={[styles.item, style]}>
       <ThemedText style={styles.itemText}>{text}</ThemedText>
       <Button title="Remove" onPress={handleDelete} />
     </ThemedView>
@@ -32,5 +33,9 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
+    marginRight: 2,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
 });
