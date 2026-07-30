@@ -1,19 +1,23 @@
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { AnimatedIcon } from '@/components/animated-icon';
 import { ApiTestButton } from '@/components/api-test-button';
 import { HintRow } from '@/components/hint-row';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import ToDoList from '@/components/to-do-list';
 import UseMemoList from '@/components/UseMemoList';
-import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ScrollView, TouchableOpacity } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { DevStackParamList } from '@/navigation/types';
+
+type DevNavigation = StackNavigationProp<DevStackParamList, 'DevHome'>;
+
 
 const LANGUAGES: { code: string; name: string }[] = [
   { code: 'en', name: 'English' },
@@ -47,23 +51,27 @@ function getDevMenuHint() {
   );
 }
 
-export default function HomeScreen() {
+export function DevScreen() {
   const [count, setCount] = useState(0);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const activeLanguageCode = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase().split(/[-_]/)[0];
+  const navigation = useNavigation<DevNavigation>()
 
-  const { t } = useTranslation()
   return (
     <ThemedView style={ styles.container}>
       <SafeAreaView style={{ ...styles.safeArea, marginTop: 50 }}>
         {/* Temp fix nestedScrollEnabled :( */}
         <ScrollView nestedScrollEnabled={true} showsVerticalScrollIndicator={false} id="check" contentContainerStyle={styles.scrollContent}>
           <ThemedView style={styles.heroSection}>
-            <AnimatedIcon />
-            <ThemedText type="title" style={styles.title}>
-              {t('deep-focus-app')}
+            <ThemedText type="subtitle">
+              {t('choose-subPage')}
             </ThemedText>
+            <Button title="Go to Explore" onPress={() => navigation.navigate('DevExplore')} />
           </ThemedView>
+
+          <ThemedText type="subtitle">
+            {t('choose-language')}
+          </ThemedText>
 
           <ThemedView style={styles.languageRow}>
             {LANGUAGES.map((lng) => {
@@ -101,8 +109,6 @@ export default function HomeScreen() {
               hint={<ThemedText type="code">npm run reset-project</ThemedText>}
             />
           </ThemedView>
-
-          {Platform.OS === 'web' && <WebBadge />}
         </ScrollView>
       </SafeAreaView>
     </ThemedView>
